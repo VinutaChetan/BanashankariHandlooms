@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sales Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Sub category</th>
+      <th>Customer name</th>
+      <th>No of sarees</th>
+      <th>Amount</th>
+      <th>Total amount</th>
+      <th>Paid</th>
+      <th>Date of paid</th>
+      <th>Balance</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales_reports.each do |sales_report| %>
+      <tr>
+        <td><%= sales_report.category.name%></td>
+        <td><%= sales_report.sub_category.name %></td>
+        <td><%= sales_report.customer_name %></td>
+        <td><%= sales_report.no_of_sarees %></td>
+        <td><%= sales_report.amount %></td>
+        <td><%= sales_report.total_amount %></td>
+        <td><%= sales_report.paid %></td>
+        <td><%=sales_report.date_of_paid%></td>
+        <td><%= sales_report.balance %></td>
+        <td><%= sales_report.details %></td>
+        <td><%= link_to 'Show', sales_report %></td>
+        <td><%= link_to 'Edit', edit_sales_report_path(sales_report) %></td>
+        <td><%= link_to 'Destroy', sales_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sales report', new_sales_report_path %>

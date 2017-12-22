@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_id: 1
+  sub_category_id: 1
+  customer_name: MyString
+  no_of_sarees: 1
+  amount: 1.5
+  total_amount: 1.5
+  paid: 1.5
+  balance: 1.5
+  details: MyText
+
+two:
+  category_id: 1
+  sub_category_id: 1
+  customer_name: MyString
+  no_of_sarees: 1
+  amount: 1.5
+  total_amount: 1.5
+  paid: 1.5
+  balance: 1.5
+  details: MyText

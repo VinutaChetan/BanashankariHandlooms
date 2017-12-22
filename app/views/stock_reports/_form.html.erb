@@ -1,0 +1,33 @@
+<%= form_for(@stock_report) do |f| %>
+  <% if @stock_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stock_report.errors.count, "error") %> prohibited this stock_report from being saved:</h2>
+
+      <ul>
+      <% @stock_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category_id %><br>
+     <%= f.collection_select :category_id,Category.all,:id,:name,prompt:"Select Category" %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_category_id %><br>
+    <%= f.collection_select :sub_category_id,SubCategory.all,:id,:name,prompt:"Select SubCategory" %>
+  </div>
+  <div class="field">
+    <%= f.label :no_of_stock %><br>
+    <%= f.number_field :no_of_stock %>
+  </div>
+  <div class="field">
+    <%= f.label :colors %><br>
+    <%= f.text_field :colors %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employee_detail.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @employee_detail.address %>
+</p>
+
+<p>
+  <strong>Advance payment:</strong>
+  <%= @employee_detail.advance_payment %>
+</p>
+
+<p>
+  <strong>Date of joining:</strong>
+  <%= @employee_detail.date_of_joining %>
+</p>
+
+<p>
+  <strong>Remaining balance:</strong>
+  <%= @employee_detail.remaining_balance %>
+</p>
+
+<%= link_to 'Edit', edit_employee_detail_path(@employee_detail) %> |
+<%= link_to 'Back', employee_details_path %>

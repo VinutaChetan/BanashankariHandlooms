@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @sales_report.category_id %>
+</p>
+
+<p>
+  <strong>Sub category:</strong>
+  <%= @sales_report.sub_category_id %>
+</p>
+
+<p>
+  <strong>Customer name:</strong>
+  <%= @sales_report.customer_name %>
+</p>
+
+<p>
+  <strong>No of sarees:</strong>
+  <%= @sales_report.no_of_sarees %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @sales_report.amount %>
+</p>
+
+<p>
+  <strong>Total amount:</strong>
+  <%= @sales_report.total_amount %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @sales_report.paid %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @sales_report.balance %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @sales_report.details %>
+</p>
+
+<%= link_to 'Edit', edit_sales_report_path(@sales_report) %> |
+<%= link_to 'Back', sales_reports_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @stock_report.category_id %>
+</p>
+
+<p>
+  <strong>Sub category:</strong>
+  <%= @stock_report.sub_category_id %>
+</p>
+
+<p>
+  <strong>No of stock:</strong>
+  <%= @stock_report.no_of_stock %>
+</p>
+
+<p>
+  <strong>Colors:</strong>
+  <%= @stock_report.colors %>
+</p>
+
+<%= link_to 'Edit', edit_stock_report_path(@stock_report) %> |
+<%= link_to 'Back', stock_reports_path %>

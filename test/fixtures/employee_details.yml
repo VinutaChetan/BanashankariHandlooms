@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyText
+  advance_payment: 1.5
+  date_of_joining: 2017-12-20
+  remaining_balance: 1.5
+
+two:
+  name: MyString
+  address: MyText
+  advance_payment: 1.5
+  date_of_joining: 2017-12-20
+  remaining_balance: 1.5

@@ -1,0 +1,81 @@
+<%= form_for(@sales_report) do |f| %>
+  <% if @sales_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sales_report.errors.count, "error") %> prohibited this sales_report from being saved:</h2>
+
+      <ul>
+      <% @sales_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category_id %><br>
+     <%= f.collection_select :category_id,Category.all,:id,:name ,prompt: "Select Category"%>
+  </div>
+  <div class="field">
+    <%= f.label :sub_category_id %><br>
+   <%= f.collection_select :sub_category_id,SubCategory.all,:id,:name,prompt:"Select SubCategory" %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_name %><br>
+    <%= f.text_field :customer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :no_of_sarees %><br>
+    <%= f.number_field :no_of_sarees %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <!-- <div class="field">
+    <%#= f.label :total_amount %><br>
+    <%#= f.text_field :total_amount %>
+  </div> -->
+  <div class="field">
+    <%= f.label :paid %><br>
+    <%= f.text_field :paid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_paid %><br>
+    <%= f.date_field :date_of_paid %>
+  </div>
+  <!-- <div class="field">
+    <%#= f.label :balance %><br>
+    <%#= f.text_field :balance %>
+  </div> -->
+  <div class="field">
+    <%= f.label :details %><br>
+    <%= f.text_area :details %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+   var categoryHandle = document.getElementById('sales_report_category_id');
+   var subcategoryHandle = document.getElementById('sales_report_sub_category_id');
+
+   categoryHandle.onchange = function(){
+    subcategoryHandle.innerHTML = "";
+    var output= "";
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET','/categories/find_sub_categories?category_id='+categoryHandle.value);
+    xhr.onreadystatechange=function(){
+      if(xhr.readyState == 4 && xhr.status == 200){
+
+       var response = JSON.parse(xhr.responseText);
+        response.forEach(function(subCategory){
+          output += "<option value="+subCategory.id+">"+subCategory.name+"</option>";
+        });
+        subcategoryHandle.innerHTML = output;
+      }
+    }
+    xhr.send();
+   };
+</script>

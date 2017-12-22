@@ -1,0 +1,30 @@
+<%= form_for(@employee_payment) do |f| %>
+  <% if @employee_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee_payment.errors.count, "error") %> prohibited this employee_payment from being saved:</h2>
+
+      <ul>
+      <% @employee_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :employee_details_id %><br>
+    <%#= f.number_field :employee_details_id %>
+    <%= f.collection_select :employee_details_id,EmployeeDetail.all,:id,:name,prompt:"select employee"%>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_payment %><br>
+    <%= f.date_field :date_of_payment %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
